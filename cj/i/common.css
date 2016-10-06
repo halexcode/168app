@@ -1,0 +1,42 @@
+*{margin:0;padding:0;}
+body{font-size:12px;font-family: Geneva, Arial, Helvetica, sans-serif; background:url(bj_1250.jpg) repeat-x ;}
+a img {border:0;}
+#q{width:220px;height:40px;font:orange; font-size: 22px;font-family: Geneva, Arial, Helvetica, sans-serif;border:#FF8000 solid 2px ;font-weight:bold;}
+.sub{background: url(8823.gif) no-repeat ;width:88px;height:23px;border:0px;cursor:hand;}
+.res{font-size:14px;color:#FF5809;font-weight:bold; } /****没用了****/
+#bt{
+	font-size: 20px;
+	color: #AA1F00;
+!important
+; 	font-weight: bold;
+}
+.red{color:#f00;}
+.center{text-align:center;}
+.errt{
+	position:absolute;
+	background: #FCF;
+	border: 2px dashed #A00;
+	height: 50px;
+	width: 400px;
+	line-height: 50px;
+	text-align: center;
+	vertical-align: middle;
+	margin-right: auto;
+	margin-left: auto;
+	left: 35%;
+	top: 35%;
+}
+.err{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+a,a:visited{color:#0353ce;}
+table {font-size:12px;}
+	table th {font-size:12px;font-weight:bold;background-color:#bcf6fa;line-height:200%;padding: 0 5px;}
+
+	table th {font-size:12px;font-weight:bold;background:#bcf6fa;padding: 0 5px;color:#014198;line-height:200%;}
+
+/* footer */
+#footer{line-height:150%;text-align:center;color:#9c9c9c;padding: 8px 0;}
+	#footer a,#footer a:visited{color:#9c9c9c;}

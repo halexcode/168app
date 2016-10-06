@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+	<link href="i/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<title>168班成绩查询</title>
+	<style>
+		body {
+		background: #eee;
+		font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
+			}
+	</style>
+</head>
+<body>
+	<div class="container"style="margin-top:7px;">
+	<div class="diver"></div>
+   		<div class="panel panel-default">
+		   <div class="panel-heading">
+		      <h3 class="panel-title"><center><b>168班成绩查询</b></center></h3>	
+		   </div>
+		   <div class="panel-body">
+		   尚未考试。。。<br/>
+		   <hr>
+		      <form role="form" method="post" action="search2.php">
+		       <div class="form-group">
+			      <label for="department"class="sr-only">月份：</label>
+			      	<select name="mon" id="department"class="form-control">
+			      		<option value=''>请选择考试月份．．．</option>
+					<option value="1">10月份月考</option>
+
+				</select>
+			   </div>
+			   <div class="form-group">
+			      <label for="name" class="sr-only">学生姓名：</label>
+			      <input type="text" class="form-control" id="name" name="uname"placeholder="请输入学生姓名">
+			   </div>
+			   <button type="submit" class="btn btn-primary btn-block">提交</button>
+		</form>
+
+		   </div>
+		</div>
+   </div>
