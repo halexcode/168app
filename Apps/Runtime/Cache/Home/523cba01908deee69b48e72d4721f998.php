@@ -3,11 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-	<link rel="stylesheet" href="/168/Public/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/168/Public/css/style.css">
-	<link rel="stylesheet" type="text/css" href="/168/Public/css/Validform.css" />
-	<script type="text/javascript" src="/168/Public/js/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" src="/168/Public/js/Validform_v5.3.2_min.js"></script>
+	<link rel="stylesheet" href="/web/168/Public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/web/168/Public/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/web/168/Public/css/Validform.css" />
+	<script type="text/javascript" src="/web/168/Public/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/web/168/Public/js/Validform_v5.3.2_min.js"></script>
 	<title><?php echo (C("site_name")); ?>—登陆</title>
 	<style>
 		.red{color: red;}
@@ -19,10 +19,10 @@
 <body>
 &nbsp;
 <div class="container">
-		<form action="/168/index.php/Home/Register/do_reg"method="post" id="form"role="form"class="registerform">
+		<form action="/web/168/index.php/Home/Register/do_reg"method="post" id="form"role="form"class="registerform">
 				<div class="form-group">
 			      <label for="nickname">昵称：</label>
-			      <input type="text" class="form-control" name="nickname" id="nickname" title='昵称' placeholder="请填写登录昵称"datatype="s2-10" ajaxurl="/168/index.php/Home/Register/ck_nickname"  sucmsg="输入正确！" nullmsg="不能为空！" errormsg="请输入2-10字符！">
+			      <input type="text" class="form-control" name="nickname" id="nickname" title='昵称' placeholder="请填写登录昵称"datatype="s2-10" ajaxurl="/web/168/index.php/Home/Register/ck_nickname"  sucmsg="输入正确！" nullmsg="不能为空！" errormsg="请输入2-10字符！">
 			   </div>
 			   <div class="form-group">
 			      <label for="uname">姓名：</label>
@@ -33,11 +33,12 @@
 			      	<select name="position" id="position"class="form-control"datatype="*">
 			      		<option value="">请选择．．．</option>
 			      		<option value="管理员">管理员</option>
-			      		<option value="校长">校长</option>
+			      		<!-- <option value="校长">校长</option>
 			      		<option value="副校长">副校长</option>
 			      		<option value="年级主任">年级主任</option>
-			      		<option value="班主任">班主任</option>
+			      		<option value="班主任">班主任</option> -->
 			      		<option value="教师">教师</option>
+			      		<option value="家长">家长</option>
 				</select>
 			   </div>
 			   <div class="form-group">

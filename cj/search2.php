@@ -56,12 +56,15 @@ $res=getchengji2('d/'.$m.'.data',$name);
 				      <tbody>
 				      <?php 
 				      	if ($res) {
+				      		//var_dump($res);
 				      		echo '<tr><td><b>准考证号：</b></td><td>'.$res[0].'</td><td><b>姓名：</b></td><td>'.$res[1].'</td></tr>';
 				      		echo '<tr><td><b>班级：</b></td><td>'.$res[2].'</td><td><b>语文：</b></td><td>'.$res[4].'</td></tr>';
 				      		echo '<tr><td><b>数学：</b></td><td>'.$res[5].'</td><td><b>英语：</b></td><td>'.$res[6].'</td></tr>';
 				      		echo '<tr><td><b>物理：</b></td><td>'.$res[7].'</td><td><b>化学：</b></td><td>'.$res[8].'</td></tr>';
-				      		echo '<tr><td><b>生物：</b></td><td>'.$res[9].'</td><td><b>总分：</b></td><td>'.$res[10].'</td></tr>';
-				      		echo '<tr><td><b>班排名：</b></td><td>'.$res[11].'</td><td><b>校排名：</b></td><td>'.$res[12].'</td></tr>';
+				      		echo '<tr><td><b>生物：</b></td><td>'.$res[9].'</td><td><b>政治：</b></td><td>'.$res[10].'</td></tr>';
+				      		echo '<tr><td><b>历史：</b></td><td>'.$res[11].'</td><td><b>地理：</b></td><td>'.$res[12].'</td></tr>';
+				      		echo '<tr><td><b>总分：</b></td><td>'.$res[13].'</td><td><b>班排名：</b></td><td>'.$res[14].'</td></tr>';
+				      		echo '<tr><td><b>校排名：</b></td><td>'.$res[15].'</td><td></td><td>'.'</td></tr>';
 				      	} else {
 				      		echo '<font style="color:red">查无此人或数据库尚未上传！</font>';
 				      	}
