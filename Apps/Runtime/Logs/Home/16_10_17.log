@@ -1,0 +1,3 @@
+[ 2016-10-17T11:03:34+08:00 ] 127.0.0.1 /web/168/index.php/Home/Register/index.html
+ERR: SQLSTATE[HY000] [1045] Access denied for user 'hkdulico'@'localhost' (using password: YES)
+
