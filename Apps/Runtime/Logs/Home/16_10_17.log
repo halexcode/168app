@@ -1,3 +1,41 @@
 [ 2016-10-17T11:03:34+08:00 ] 127.0.0.1 /web/168/index.php/Home/Register/index.html
 ERR: SQLSTATE[HY000] [1045] Access denied for user 'hkdulico'@'localhost' (using password: YES)
 
+[ 2016-10-17T15:14:04+08:00 ] 127.0.0.1 /web/168/index.php/Home/Login/ck_uname
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000039s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000103s ]
+SQL: SHOW COLUMNS FROM `168app_user` [ RunTime:0.0168s ]
+SQL: SELECT * FROM `168app_user` WHERE `nickname` = 'hxb0810' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000099s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000148s ]
+
+[ 2016-10-17T15:14:06+08:00 ] 127.0.0.1 /web/168/index.php/Home/Login/ck_upass
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000029s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000073s ]
+SQL: SHOW COLUMNS FROM `168app_user` [ RunTime:0.0009s ]
+SQL: SELECT `upass` FROM `168app_user` WHERE `nickname` = 'hxb0810' LIMIT 1   [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000065s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000096s ]
+
+[ 2016-10-17T15:14:13+08:00 ] 127.0.0.1 /web/168/index.php/Home/Login/ck_upass
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000028s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000085s ]
+SQL: SHOW COLUMNS FROM `168app_user` [ RunTime:0.0008s ]
+SQL: SELECT `upass` FROM `168app_user` WHERE `nickname` = 'hxb0810' LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000067s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000092s ]
+
+[ 2016-10-17T15:14:20+08:00 ] 127.0.0.1 /web/168/index.php/Home/Login/ck_code
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000044s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000124s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000021s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000042s ]
+
