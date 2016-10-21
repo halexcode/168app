@@ -72,7 +72,7 @@
 		  <tbody>
 		    <tr>
 		      <td class="b"><a href="/web/168/cj/search.html" class="btn btn-primary a" >成绩<br>查询</a></td>
-		      <td><a href="#" class="btn btn-info a" >班级<br>管理</a></td>
+		      <td><a href="http://v.qq.com/vplus/6374a35bdf4a700af9bb462829b154a5/foldervideos/ky30001017h2e4f" class="btn btn-info a" >168<br>微课堂</a></td>
 		    </tr>
 		    <tr>
 		      <td class="b"><a href="#" class="btn btn-success a" >班级<br>管理</a></td>
