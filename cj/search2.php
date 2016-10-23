@@ -34,7 +34,7 @@ $res=getchengji2('d/'.$m.'.data',$name);
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 	<link href="../Public/css/bootstrap.min.css" rel="stylesheet">
-	<title>168班成绩查询</title>
+	<title>成绩查询结果</title>
 	<style>
 		body {
 	background: #eee;
@@ -47,7 +47,7 @@ $res=getchengji2('d/'.$m.'.data',$name);
 	<div class="diver"></div>
    		<div class="panel panel-default">
 		   <div class="panel-heading">
-		      <h3 class="panel-title"><center><b>168班成绩查询结果</b></center></h3>	
+		      <h3 class="panel-title"><center><b>成绩查询结果</b></center></h3>	
 		   </div>
 		   <div class="panel-body">
 				<div class="table-responsive">
