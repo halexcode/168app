@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="zh-cn">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css">
-	<link rel="stylesheet" href="__PUBLIC__/css/style.css">
+	<link rel="stylesheet" href="/web/168/Public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/web/168/Public/css/style.css">
 	<title>168班轻应用</title>
 	<style>
 		.a{padding:15px 20px; margin: 20px auto 10px auto;  }
@@ -54,23 +54,23 @@
 				<ul class="nav nav-pills nav-justified "style="text-align: center;">
 					<div class="col-xs-3">
 						<li >
-							<a href="<{:U('Index/index')}>" class="btn btn-link"><span class="glyphicon glyphicon-home"></span><br><span>首页</span>
+							<a href="<?php echo U('Index/index');?>" class="btn btn-link"><span class="glyphicon glyphicon-home"></span><br><span>首页</span>
 							</a>
 						</li>
 					</div>
 					<div class="col-xs-3">
 						<li>
-							<a href="<{:U('Info/index')}>" class="btn btn-link "><span class="glyphicon glyphicon-th-list"></span><br><span>资讯</span></a>
+							<a href="<?php echo U('Info/index');?>" class="btn btn-link "><span class="glyphicon glyphicon-th-list"></span><br><span>资讯</span></a>
 						</li>
 					</div>
 					<div class="col-xs-3">
 						<li style="color:green;">
-							<a href="<{:U('Search/index')}>" class="btn btn-link "><span class="active glyphicon glyphicon-search"></span><br><span class="active" >查询</span></a>
+							<a href="<?php echo U('Search/index');?>" class="btn btn-link "><span class="active glyphicon glyphicon-search"></span><br><span class="active" >查询</span></a>
 						</li>
 					</div>
 					<div class="col-xs-3">
 						<li>
-							<a href="<{:U('My/index')}>" class="btn btn-link "><span class="glyphicon glyphicon-user"></span><br><span>我</span></a>
+							<a href="<?php echo U('My/index');?>" class="btn btn-link "><span class="glyphicon glyphicon-user"></span><br><span>我</span></a>
 						</li>
 					</div>
 				</div>
@@ -82,8 +82,8 @@
 				</ul>	 
 		</div>
 	</nav> -->
-<script src="__PUBLIC__/js/jquery.min.js"></script>
-<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+<script src="/web/168/Public/js/jquery.min.js"></script>
+<script src="/web/168/Public/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	//设置轮播时间

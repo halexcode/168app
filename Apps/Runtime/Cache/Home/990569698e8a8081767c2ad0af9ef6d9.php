@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="zh-cn">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css">
-	<link rel="stylesheet" href="__PUBLIC__/css/style.css">
-	<title><{$Think.config.site_name}></title>
+	<link rel="stylesheet" href="/web/168/Public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/web/168/Public/css/style.css">
+	<title><?php echo (C("site_name")); ?></title>
 	<style>
 		.a{padding:15px 20px; margin: 20px auto 10px auto;  }
 		.b{border-right: solid 1px #eeeeee;}
@@ -35,19 +35,17 @@
 		  <caption>我的信息</caption>
 				<tbody style="box-shadow: 0px 5px 3px #ccc;">
 				    <tr>
-				      <empty name="uname">
-						<td><a href="<{:U('Login/index')}>" class="btn btn-link "><span class="glyphicon glyphicon-user"style="color:#62b900;"></span>&nbsp;&nbsp;&nbsp;<span style="color:red;">尚未登录</span></a></td>
-						<td><a href="<{:U('Login/index')}>" class="btn btn-info btn-xs"style="color:white;margin-top:7px;">登录/注册</a></td>
-						<else />
-						<td><a href="__URL__/myinfo" class="btn btn-link"><span class="glyphicon glyphicon-user"style="color:#62b900;"></span>&nbsp;&nbsp;&nbsp;<span style="color:green;"><{$uname}></span></a></td>
-						<td><a href="<{:U('Login/out_login')}>" class="btn btn-danger btn-xs"style="color:white;margin-top:7px;"onclick="return out();">退出</a></td>
-						</empty>
+				      <?php if(empty($uname)): ?><td><a href="<?php echo U('Login/index');?>" class="btn btn-link "><span class="glyphicon glyphicon-user"style="color:#62b900;"></span>&nbsp;&nbsp;&nbsp;<span style="color:red;">尚未登录</span></a></td>
+						<td><a href="<?php echo U('Login/index');?>" class="btn btn-info btn-xs"style="color:white;margin-top:7px;">登录/注册</a></td>
+						<?php else: ?>
+						<td><a href="/web/168/index.php/Home/My/myinfo" class="btn btn-link"><span class="glyphicon glyphicon-user"style="color:#62b900;"></span>&nbsp;&nbsp;&nbsp;<span style="color:green;"><?php echo ($uname); ?></span></a></td>
+						<td><a href="<?php echo U('Login/out_login');?>" class="btn btn-danger btn-xs"style="color:white;margin-top:7px;"onclick="return out();">退出</a></td><?php endif; ?>
 						
 				      
 				    </tr>
 				    <tr style="border-bottom: solid #ccc 2px;">
-				      <td><a href="__ROOT__/cj/search.html" class="btn btn-link"><span class="glyphicon glyphicon-star-empty"style="color:red;"></span>&nbsp;&nbsp;&nbsp;纪律查询</a></td>
-				      <td><a href="__ROOT__/cj/search.html" class="btn btn-link">></a></td>
+				      <td><a href="/web/168/cj/search.html" class="btn btn-link"><span class="glyphicon glyphicon-star-empty"style="color:red;"></span>&nbsp;&nbsp;&nbsp;纪律查询</a></td>
+				      <td><a href="/web/168/cj/search.html" class="btn btn-link">></a></td>
 				    </tr>
 		  		</tbody>
 		  
@@ -60,12 +58,12 @@
 		  <caption>设置</caption>
 				<tbody>
 				    <tr>
-				      <td><a href="__URL__/upass" class="btn btn-link"><span class="glyphicon glyphicon-cog"style="color:purple;"></span>&nbsp;&nbsp;&nbsp;密码修改</a></td>
-				      <td><a href="__URL__/upass" class="btn btn-link">></a></td>
+				      <td><a href="/web/168/index.php/Home/My/upass" class="btn btn-link"><span class="glyphicon glyphicon-cog"style="color:purple;"></span>&nbsp;&nbsp;&nbsp;密码修改</a></td>
+				      <td><a href="/web/168/index.php/Home/My/upass" class="btn btn-link">></a></td>
 				    </tr>
 				    <tr style="border-bottom: solid #ccc 2px;">
-				      <td><a href="__URL__/about" class="btn btn-link"><span class="glyphicon glyphicon-exclamation-sign"style="color:orange;"></span>&nbsp;&nbsp;&nbsp;关于我们</a></td>
-				      <td><a href="__ROOT__/cj/search.html" class="btn btn-link">></a></td>
+				      <td><a href="/web/168/index.php/Home/My/about" class="btn btn-link"><span class="glyphicon glyphicon-exclamation-sign"style="color:orange;"></span>&nbsp;&nbsp;&nbsp;关于我们</a></td>
+				      <td><a href="/web/168/cj/search.html" class="btn btn-link">></a></td>
 				    </tr>
 		  		</tbody>
 		  
@@ -89,23 +87,23 @@
 				<ul class="nav nav-pills nav-justified "style="text-align: center;">
 					<div class="col-xs-3">
 						<li >
-							<a href="<{:U('Index/index')}>" class="btn btn-link"><span class="glyphicon glyphicon-home"></span><br><span>首页</span>
+							<a href="<?php echo U('Index/index');?>" class="btn btn-link"><span class="glyphicon glyphicon-home"></span><br><span>首页</span>
 							</a>
 						</li>
 					</div>
 					<div class="col-xs-3">
 						<li>
-							<a href="<{:U('Info/index')}>" class="btn btn-link "><span class="glyphicon glyphicon-th-list"></span><br><span>资讯</span></a>
+							<a href="<?php echo U('Info/index');?>" class="btn btn-link "><span class="glyphicon glyphicon-th-list"></span><br><span>资讯</span></a>
 						</li>
 					</div>
 					<div class="col-xs-3">
 						<li >
-							<a href="<{:U('Search/index')}>" class="btn btn-link "><span class=" glyphicon glyphicon-search"></span><br><span  >查询</span></a>
+							<a href="<?php echo U('Search/index');?>" class="btn btn-link "><span class=" glyphicon glyphicon-search"></span><br><span  >查询</span></a>
 						</li>
 					</div>
 					<div class="col-xs-3">
 						<li>
-							<a href="<{:U('My/index')}>" class="btn btn-link "><span class="glyphicon glyphicon-user active"></span><br><span class="active">我</span></a>
+							<a href="<?php echo U('My/index');?>" class="btn btn-link "><span class="glyphicon glyphicon-user active"></span><br><span class="active">我</span></a>
 						</li>
 					</div>
 				</div>
@@ -117,8 +115,8 @@
 				</ul>	 -->
 		</div>
 	</nav>
-<script src="__PUBLIC__/js/jquery.min.js"></script>
-<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+<script src="/web/168/Public/js/jquery.min.js"></script>
+<script src="/web/168/Public/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	//设置轮播时间
