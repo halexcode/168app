@@ -1,0 +1,40 @@
+[ 2016-10-27T15:51:14+08:00 ] 127.0.0.1 /web/168/index.php/Home/Login/ck_uname
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000033s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000086s ]
+SQL: SHOW COLUMNS FROM `168app_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `168app_user` WHERE `nickname` = 'hxb0810' LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000077s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000107s ]
+
+[ 2016-10-27T15:51:24+08:00 ] 127.0.0.1 /web/168/index.php/Home/Login/ck_code
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000020s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000067s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000019s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000038s ]
+
+[ 2016-10-27T15:51:24+08:00 ] 127.0.0.1 /web/168/index.php/Home/Login/ck_upass
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000067s ]
+SQL: SHOW COLUMNS FROM `168app_user` [ RunTime:0.0008s ]
+SQL: SELECT `upass` FROM `168app_user` WHERE `nickname` = 'hxb0810' LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000060s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000091s ]
+
+[ 2016-10-27T16:57:27+08:00 ] 127.0.0.1 /web/168/index.php/Home/My/do_uedit
+ERR: 非法操作:do_uedit
+
+[ 2016-10-27T16:57:44+08:00 ] 127.0.0.1 /web/168/index.php/Home/My/do_uedit
+ERR: 非法操作:do_uedit
+
+[ 2016-10-27T17:01:06+08:00 ] 127.0.0.1 /web/168/index.php/Home/My/uedit/uid/4.html
+ERR: syntax error, unexpected end of file, expecting function (T_FUNCTION)
+
+[ 2016-10-27T17:01:08+08:00 ] 127.0.0.1 /web/168/index.php/Home/My/uedit/uid/4.html
+ERR: syntax error, unexpected end of file, expecting function (T_FUNCTION)
+

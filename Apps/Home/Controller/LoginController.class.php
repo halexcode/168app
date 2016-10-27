@@ -111,8 +111,8 @@ class LoginController extends Controller {
 				session('loginip',$arr['loginip']);
 				//redirect(U('Index/index'));
 				if (!empty($arr['lasttime'])) {
-					$this->redirect('My/index');
-					//$this->success('登录成功,新会员！',U('My/index'),1);
+					//$this->redirect('My/index');
+					$this->success('登录成功！',U('My/index'),1);
 				} else {
 					$this->success('登录成功,新会员！',U('My/index'),1);
 				}	

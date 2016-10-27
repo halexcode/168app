@@ -5,9 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css">
 	<link rel="stylesheet" href="__PUBLIC__/css/style.css">
-	<load href="__PUBLIC__/css/Validform.css" />
-	<load href="__PUBLIC__/js/jquery-1.9.1.min.js" />
-	<load href="__PUBLIC__/js/Validform_v5.3.2_min.js" />
+	
 	<title><{$Think.config.site_name}>—违纪登记</title>
 	<style>
 		.red{color: red;}
@@ -16,7 +14,7 @@
 	</style>
 	<script>
 	function sub(){
-		if(confirm("确定要提交该学生违纪记录吗？")){
+		if(confirm("确定要修改<?php echo '['.$out['sname'].']'; ?>的违纪记录吗？")){
 		return true;
 		}else{
 		return false;
@@ -28,15 +26,15 @@
 <body>
 &nbsp;
 <div class="container">
-		<form action="__URL__/do_outlines"method="post" id="form"role="form"class="registerform">
+		<form action="__URL__/do_oedit/sid/<{$out['sid']}>" method="post" id="form" role="form">
 				<div class="form-group">
 			      <label for="sname">姓名：</label>
-			      <input type="text" class="form-control" name="sname" id="sname" title='学生姓名' placeholder="请填写学生姓名"datatype="zh2-4"  sucmsg="输入正确！" nullmsg="不能为空！" errormsg="请输入2-4位中文！">
+			      <input type="text" class="form-control" name="sname" id="sname" title='学生姓名' value="<{$out.sname}>">
 			   </div>
 			   <div class="form-group">
 			      <label for="outlines">违纪条目：</label>
 			      	<select name="outlines" id="outlines"class="form-control"datatype="*">
-			      		<option value="">请选择．．．</option>
+			      		<option value="<{$out.outlines}>"><{$out.outlines}></option>
 			      		<option value="迟到">迟到</option>
 			      		<option value="上课说话">上课说话</option>
 			      		<option value="上课吃东西">上课吃东西</option>
@@ -54,16 +52,16 @@
 			   </div>
 			   <div class="form-group">
 			      <label for="remark">备注：</label>
-			      <input type="text" class="form-control" name="remark" id="remark" title='备注' placeholder="请填写备注">
+			      <input type="text" class="form-control" name="remark" id="remark" title='备注' value="<{$out.remark}>">
 			   </div>
 			   <div class="form-group">
 			      <label for="time">时间：</label>
-			      <input type="text" class="form-control" name="time" id="time" title='时间' placeholder="请填写违纪时间，如：上课期间，上课前等">
+			      <input type="text" class="form-control" name="time" id="time" title='时间' value="<{$out.time}>">
 			   </div>
 			   <div class="form-group">
 			      <label for="booker">登记人：</label>
 			      	<select name="booker" id="booker"class="form-control"datatype="*">
-			      		<option value="">请选择．．．</option>
+			      		<option value="<{$out.booker}>"><{$out.booker}></option>
 			      		<option value="班主任">班主任</option>
 			      		<option value="(语文)魏老师">(语文)魏老师</option>
 			      		<option value="(数学)张老师">(数学)张老师</option>
@@ -76,48 +74,45 @@
 			  
 				</select>
 				</div>
+				<div class="form-group">
+			      <label for="status">状态：</label>
+			      	<select name="status" id="status" class="form-control">
+			      	<switch name="out.status">
+					 <case value="0"><option value="0">未处理</option></case>
+					<case value="1"><option value="1">已处理</option></case>
+					<default />
+					 </switch>
+			      		<option value="0">未处理</option>
+			      		<option value="1">已处理</option>
+			  
+				</select>
+				</div>
+				<div class="form-group">
+			      <label for="processor">处理人：</label>
+			      	<select name="processor" id="processor" class="form-control">
+			      		<option value="<{$out.processor}>"><{$out.processor|default="无"}></option>
+			      		<option value="班主任">班主任</option>
+			      		<option value="年级组">年级组</option>
+			      		<option value="学校政教处">学校政教处</option>
+			  
+				</select>
+				</div>
+				<div class="form-group">
+			      <label for="processmode">处理方式：</label>
+			      	<select name="processmode" id="processmode" class="form-control">
+			      		<option value="<{$out.processmode}>"><{$out.processmode|default="无"}></option>
+			      		<option value="谈话">谈话</option>
+			      		<option value="约谈家长">约谈家长</option>
+			      		<option value="学校处分">学校处分</option>
+			  
+				</select>
+				</div>
 			   
 			   <button type="submit" class="btn btn-success btn-block" title="提交"onclick="return sub();">提交</button>
-			   <button type="reset" class="btn btn-info btn-block" title="重置">重置</button>
+			   
 			   
 		</form>
 </div>
-&nbsp;
-<script type="text/javascript">
-// $(function(){
-// 	//$(".registerform").Validform();  //就这一行代码！;
-		
-// 	$(".registerform").Validform({
-// 		tiptype:3
-// 	});
-// })
-
-</script>
-<script type="text/javascript">
-$(function(){
-	//$(".registerform").Validform();  //就这一行代码！;
-		
-	var demo=$(".registerform").Validform({
-		tiptype:3,
-		//label:".label",
-		showAllError:true,
-		datatype:{
-			"zh1-6":/^[\u4E00-\u9FA5\uf900-\ufa2d]{1,6}$/
-		},
-		//ajaxPost:true
-	});
-	
-	//通过$.Tipmsg扩展默认提示信息;
-	//$.Tipmsg.w["zh1-6"]="请输入1到6个中文字符！";
-	//demo.tipmsg.w["zh1-6"]="请输入1到6个中文字符！";
-	
-	//demo.addRule([{
-		//ele:".inputxt:eq(0)",
-		//datatype:"zh2-4"
-	//}
-	//]);
-	
-})
-</script>
+&nbsp;<br><br>
 </body>
 </html>

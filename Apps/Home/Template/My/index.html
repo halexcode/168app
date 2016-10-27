@@ -26,6 +26,10 @@
 		return false;
 		}
 	}
+	function sub(){
+		var power="<?php echo $user['power']; ?>";
+		if ( power>=90) {return true;} else {alert('无权限！');return false;}
+	}
 	</script>
 </head>
 <body>
@@ -35,19 +39,23 @@
 		  <caption>我的信息</caption>
 				<tbody style="box-shadow: 0px 5px 3px #ccc;">
 				    <tr>
-				      <empty name="uname">
+				      <empty name="Think.session.username">
 						<td><a href="<{:U('Login/index')}>" class="btn btn-link "><span class="glyphicon glyphicon-user"style="color:#62b900;"></span>&nbsp;&nbsp;&nbsp;<span style="color:red;">尚未登录</span></a></td>
 						<td><a href="<{:U('Login/index')}>" class="btn btn-info btn-xs"style="color:white;margin-top:7px;">登录/注册</a></td>
 						<else />
-						<td><a href="__URL__/myinfo" class="btn btn-link"><span class="glyphicon glyphicon-user"style="color:#62b900;"></span>&nbsp;&nbsp;&nbsp;<span style="color:green;"><{$uname}></span></a></td>
+						<td><a href="__URL__/myinfo" class="btn btn-link"><span class="glyphicon glyphicon-user"style="color:#62b900;"></span>&nbsp;&nbsp;&nbsp;<span style="color:green;"><{$user['uname']?$user['uname']:$user['nickname']}></span></a></td>
 						<td><a href="<{:U('Login/out_login')}>" class="btn btn-danger btn-xs"style="color:white;margin-top:7px;"onclick="return out();">退出</a></td>
 						</empty>
 						
 				      
 				    </tr>
-				    <tr style="border-bottom: solid #ccc 2px;">
-				      <td><a href="__ROOT__/cj/search.html" class="btn btn-link"><span class="glyphicon glyphicon-star-empty"style="color:red;"></span>&nbsp;&nbsp;&nbsp;纪律查询</a></td>
+				    <tr >
+				      <td><a href="__ROOT__/cj/search.html" class="btn btn-link"><span class="glyphicon glyphicon-search"style="color:red;"></span>&nbsp;&nbsp;&nbsp;成绩查询</a></td>
 				      <td><a href="__ROOT__/cj/search.html" class="btn btn-link">></a></td>
+				    </tr>
+				    <tr style="border-bottom: solid #ccc 2px;">
+				      <td><a href="<{:U('Outline/search')}>" class="btn btn-link"><span class="glyphicon glyphicon-search"style="color:green;"></span>&nbsp;&nbsp;&nbsp;纪律查询</a></td>
+				      <td><a href="<{:U('Outline/search')}>" class="btn btn-link">></a></td>
 				    </tr>
 		  		</tbody>
 		  
@@ -61,11 +69,32 @@
 				<tbody>
 				    <tr>
 				      <td><a href="__URL__/upass" class="btn btn-link"><span class="glyphicon glyphicon-cog"style="color:purple;"></span>&nbsp;&nbsp;&nbsp;密码修改</a></td>
-				      <td><a href="__URL__/upass" class="btn btn-link">></a></td>
+				      <td>&nbsp;</td>
 				    </tr>
 				    <tr style="border-bottom: solid #ccc 2px;">
 				      <td><a href="__URL__/about" class="btn btn-link"><span class="glyphicon glyphicon-exclamation-sign"style="color:orange;"></span>&nbsp;&nbsp;&nbsp;关于我们</a></td>
-				      <td><a href="__ROOT__/cj/search.html" class="btn btn-link">></a></td>
+				      <td>&nbsp;</td>
+				    </tr>
+		  		</tbody>
+		  
+		</table>
+		
+		
+			
+	</div>
+</div>
+<div id="search" >
+	<div class="container ">
+		<table class="table search_bar">
+		  <caption>后台管理</caption>
+				<tbody>
+				    <tr>
+				      <td><a href="__URL__/ulist" class="btn btn-link"onclick="return sub();"><span class="glyphicon glyphicon-user" style="color:#1E90FF;"></span>&nbsp;&nbsp;&nbsp;用户管理</a></td>
+				      <td>&nbsp;</td>
+				    </tr>
+				    <tr style="border-bottom: solid #ccc 2px;">
+				      <td><a href="__URL__/olist" class="btn btn-link"onclick="return sub();"><span class="glyphicon glyphicon-star" style="color:#8B6508;"></span>&nbsp;&nbsp;&nbsp;纪律管理</a></td>
+				      <td>&nbsp;</td>
 				    </tr>
 		  		</tbody>
 		  

@@ -37,6 +37,8 @@ class RegisterController extends Controller {
 			exit($user->getError().'[<a href="javascript:history.back()" rel="external nofollow" style="color:red;">返 回</a>]');
 		}else{
 			$user->upass=I('post.upass','','md5');
+			$user->regtime=time();
+			$user->loginip=get_client_ip();
 			$result = $user->add(); // 写入数据到数据库
 			if($result){
 			header("Content-Type:text/html; charset=utf-8");
