@@ -30,7 +30,7 @@ class RegisterController extends Controller {
 			}
 	}
 	public function do_reg(){
-		var_dump(I('post.'));
+		//var_dump(I('post.'));
 		$user=D("User");
 		if (!$user->create()){
 			header("Content-Type:text/html; charset=utf-8");

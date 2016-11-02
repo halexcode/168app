@@ -28,7 +28,12 @@
 	}
 	function sub(){
 		var power="<?php echo $user['power']; ?>";
-		if ( power>=90) {return true;} else {alert('无权限！');return false;}
+		if ( power>=90) {
+			return true;
+		} else {
+			alert('无权限！');
+			return false;
+		}
 	}
 	</script>
 </head>
@@ -92,8 +97,12 @@
 				      <td><a href="__URL__/ulist" class="btn btn-link"onclick="return sub();"><span class="glyphicon glyphicon-user" style="color:#1E90FF;"></span>&nbsp;&nbsp;&nbsp;用户管理</a></td>
 				      <td>&nbsp;</td>
 				    </tr>
-				    <tr style="border-bottom: solid #ccc 2px;">
+				    <tr >
 				      <td><a href="__URL__/olist" class="btn btn-link"onclick="return sub();"><span class="glyphicon glyphicon-star" style="color:#8B6508;"></span>&nbsp;&nbsp;&nbsp;纪律管理</a></td>
+				      <td>&nbsp;</td>
+				    </tr>
+				    <tr style="border-bottom: solid #ccc 2px;">
+				      <td><a href="__URL__/slist" class="btn btn-link"onclick="return sub();"><span class="glyphicon glyphicon-comment" style="color:#8600FF;"></span>&nbsp;&nbsp;&nbsp;学生信息</a></td>
 				      <td>&nbsp;</td>
 				    </tr>
 		  		</tbody>

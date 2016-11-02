@@ -1,0 +1,10 @@
+[ 2016-11-02T21:49:00+08:00 ] 127.0.0.1 /web/168/index.php/Home/My/ck_sname
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000023s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000061s ]
+SQL: SHOW COLUMNS FROM `168app_students` [ RunTime:0.0006s ]
+SQL: SELECT `sname` FROM `168app_students` WHERE `sname` = '刘德华' LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000064s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000081s ]
+

@@ -94,7 +94,7 @@ class MyController extends Controller {
 	public function olist(){
 		$p=D('Outlines');
 		$count      = $p->count();
-		$Page       = new \Think\Page($count,5);
+		$Page       = new \Think\Page($count,10);
 			$Page->setConfig('prev',  '<span >上一页</span>');//上一页
 			$Page->setConfig('next',  '<span >下一页</span>');//下一页
 			$Page->setConfig('first', '<span >首页</span>');//第一页
@@ -202,6 +202,154 @@ class MyController extends Controller {
 			$this->success('删除成功',U('ulist'));
 		}	
 	}
+	public function add_s(){
+		//echo I('get.uid');
+		// $where['uid']= I('get.uid');
+		// $p=M("User");
+		// $result=$p->where($where)->delete();
+		// if ($result===false||$result===0) {
+		// 	$this->error('删除失败');
+		// } else {
+		// 	$this->success('删除成功',U('ulist'));
+		// }
+		$this->display();	
+	}
+	public function do_add_s(){
+		//dump (I('post.'));
+		$config = array(
+		'maxSize' => 3145728,
+		'rootPath' => './Uploads/',
+		'savePath' => '',
+		'saveName' => array('uniqid',''),
+		'exts'=> array('jpg', 'gif', 'png', 'jpeg'),
+		'autoSub' => true,
+		'subName' => array('date','Ymd'),
+		);
+		$upload = new \Think\Upload($config);// 实例化上传类
+		// 上传文件
+		$info = $upload->upload();
+			if(!$info) {// 上传错误提示错误信息
+			$this->error($upload->getError());
+			}else{// 上传成功
+			//$this->success('上传成功!');
+			$path= '/Uploads/'.$info['image']['savepath'].$info['image']['savename'];
+			$stu=D("Students");
+				if (!$stu->create()){
+				header("Content-Type:text/html; charset=utf-8");
+				exit($stu->getError().'[<a href="javascript:history.back()" rel="external nofollow" style="color:red;">返 回</a>]');
+				}else{
+					$stu->image=$path;
+					$stu->time=time();
+					$result = $stu->add(); // 写入数据到数据库
+					if($result){
+					header("Content-Type:text/html; charset=utf-8");
+					echo "恭喜您，添加学生信息成功！";
+					redirect(U('add_s'), 2, ' 页面跳转中 ...');
+					}
+				}
+			//echo $path;
+			}
+		
+		}
+		public function ck_sname(){
+		$where['sname']=I('post.param');
+		$s=M('Students');
+		$sname=$s->where($where)->field('sname')->find();
+			if (!$sname) {
+				echo '{
+					"info":"该学生尚未添加，可以添加！",
+					"status":"y"
+		 		}';
+			} else {
+				echo '{
+					"info":"该学生已添加！请勿重复添加！"
+		 		}';
+			}
+	}
+	public function slist(){
+		
+		    $User = D('Students'); // 实例化User对象
+		    $count      = $User->count();// 查询满足要求的总记录数
+		    $Page       = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+		    	$Page->setConfig('prev',  '<span >上一页</span>');//上一页
+			$Page->setConfig('next',  '<span >下一页</span>');//下一页
+			$Page->setConfig('first', '<span >首页</span>');//第一页
+			$Page->setConfig('last',  '<span >尾页</span>');//最后一页
+			//$Page->setConfig('theme','');设置你想显示的按钮，%XXXX%含义参照图示
+			//$Page->setConfig('theme',"<ul class='pagination'><li><a> %HEADER%  %NOW_PAGE%/%TOTAL_PAGE% 页</a></li><li>%FIRST%</li><li>%UP_PAGE%</li><li>%LINK_PAGE%</li><li>%DOWN_PAGE%</li><li>%END%</li></ul>");
+			//$Page->setConfig ( 'theme', ' %HEADER% %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%' );
+		    $show       = $Page->show();// 分页显示输出
+		    // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
+		     $list = $User->order('sid asc')->limit($Page->firstRow.','.$Page->listRows)->select();
+		     $this->assign('count',$count);
+		     $this->assign('slist',$list);// 赋值数据集
+		    $this->assign('page',$show);// 赋值分页输出
+		    $this->display(); // 输出模板
+	}
+	public function sedit(){
+		//echo I('get.sid');
+		//获取用户信息
+		$where['sid']=I('get.sid');
+		$stu=M("Students");
+		$re=$stu->where($where)->find();
+		$this->assign('stu',$re);
+		$this->display();
+	}
+	public function do_sedit(){
+		//dump (I('post.'));
+		$where['sid']=I('get.sid');
+		$stu=M("Students");
+		$simage=$stu->where($where)->getField('image');
+
+		$config = array(
+		'maxSize' => 3145728,
+		'rootPath' => './Uploads/',
+		'savePath' => '',
+		'saveName' => array('uniqid',''),
+		'exts'=> array('jpg', 'gif', 'png', 'jpeg'),
+		'autoSub' => true,
+		'subName' => array('date','Ymd'),
+		);
+		$upload = new \Think\Upload($config);// 实例化上传类
+		// 上传文件
+		$info = $upload->upload();
+		//echo I('get.sid');
+		//dump(I('post.'));
+		//var_dump($info);
+			if(!$info) {// 上传错误提示错误信息
+			$data['image']=$simage;
+			}else{// 上传成功
+			//$this->success('上传成功!');
+			$path= '/Uploads/'.$info['image']['savepath'].$info['image']['savename'];
+			$data['image']=$path;
+			//echo $path;
+			}
+			$data['sname']=I('post.sname');
+			$data['sex']=I('post.sex');
+			$data['class']=I('post.class');
+			$data['grade']=I('post.grade');
+			$data['type']=I('post.type');
+			$re=$stu->where($where)->save($data);
+			if ($re===0) {
+				$this->error('信息修改失败！');
+			} else {
+				$this->success('信息修改成功',U('slist'));
+			}
+			
+
+		
+		}
+		public function sdel(){
+		//echo I('get.sid');
+		$where['sid']= I('get.sid');
+		$p=M("Students");
+		$result=$p->where($where)->delete();
+		if ($result===false||$result===0) {
+			$this->error('删除失败');
+		} else {
+			$this->success('删除成功',U('slist'));
+		}	
+	}
 
 
 
@@ -210,4 +358,11 @@ class MyController extends Controller {
 
 
 
-}
+		
+	}
+
+	
+
+
+
+
