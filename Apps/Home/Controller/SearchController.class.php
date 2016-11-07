@@ -20,14 +20,19 @@ class SearchController extends Controller {
         $user=M(Students);
         $sname=$user->where($where)->getField('sname');
         //dump($u);
-        echo $sname;
+        //echo $sname;
+       // dump(I('post.'));
         if (!$sname) {
             $this->error('无该生信息！添加失败！');
         } else {
             $out = M('Outlines');
             // 创建数据后写入到数据库
             $data['sname'] = $sname;
-            $data['outlines'] = I('post.wj');
+            if (I('post.wj')==0) {
+                $data['outlines'] = I('post.wj2');
+            } else {
+                $data['outlines'] = I('post.wj');
+            }
             $data['booktime'] = time();
             $data['booker'] = '值班老师';
             $re=$out->data($data)->add(); 
