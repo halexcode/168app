@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="zh-cn">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css">
-	<link rel="stylesheet" href="__PUBLIC__/css/style.css">
-	<title><{$Think.config.site_name}>-QrcodeScan</title>
+	<link rel="stylesheet" href="/web/168/Public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/web/168/Public/css/style.css">
+	<title><?php echo (C("site_name")); ?>-QrcodeScan</title>
 	<style>
  		.w{width: 45%;}
  		#img{display: none;}
@@ -43,23 +43,23 @@
 				     	<td colspan="2">
 
 							<!-- <div class="carousel-inner">
-							<div class="item active"><img src="__PUBLIC__/img/168.jpg" alt=""></div>
+							<div class="item active"><img src="/web/168/Public/img/168.jpg" alt=""></div>
 							</div> -->
 
-				     	<img src="__ROOT__<{$user.image}>" class="carousel-inner img-responsive img-thumbnail " id="ab">
+				     	<img src="/web/168<?php echo ($user["image"]); ?>" class="carousel-inner img-responsive img-thumbnail " id="ab">
 				     	</td>
 				     </tr>
 				     <tr>
-				     	<td class="w">姓名：</td><td><span class="text-primary h3"><{$user.sname}></span ></td>
+				     	<td class="w">姓名：</td><td><span class="text-primary h3"><?php echo ($user["sname"]); ?></span ></td>
 				     </tr>
 				     <tr>
-				     	<td class="w">类型：</td><td><{$user.type}></td>
+				     	<td class="w">类型：</td><td><?php echo ($user["type"]); ?></td>
 				     </tr>
 				     <tr>
-				     	<td class="w">班级：</td><td><{$user.class}>班(<{$user.grade}>)</td>
+				     	<td class="w">班级：</td><td><?php echo ($user["class"]); ?>班(<?php echo ($user["grade"]); ?>)</td>
 				     </tr>
 				     <tr >
-				     <form action="__URL__/do_s/sid/<{$user['sid']}>" method="post" id="form" role="form">
+				     <form action="/web/168/index.php/Home/Search/do_s/sid/<?php echo ($user['sid']); ?>" method="post" id="form" role="form">
 						<td class="w" style="vertical-align:middle;"><div class="form-group">
 						      	<select name="wj"  class="form-control" id="in" oninput="input();">
 						      		<option value="无">违纪项目...</option>
@@ -76,8 +76,8 @@
 			   			</td>
 						<td style="vertical-align:middle;">
 						
-							<button type="submit" class="btn btn-success btn-danger" title="提交"onclick="return sub(this);" v="<{$user.sname}>"><span class="glyphicon glyphicon-send"></span>&nbsp;一键通知班主任</button>
-							<!-- <a href="<{:U('Search/do_s',array('uid'=>$user['uid'],'wj'=>wj))}>" class="btn  btn-danger" title="一键通知班主任" onclick="return sub();"><span class="glyphicon glyphicon-send"></span>&nbsp;一键通知班主任</a> -->
+							<button type="submit" class="btn btn-success btn-danger" title="提交"onclick="return sub(this);" v="<?php echo ($user["sname"]); ?>"><span class="glyphicon glyphicon-send"></span>&nbsp;一键通知班主任</button>
+							<!-- <a href="<?php echo U('Search/do_s',array('uid'=>$user['uid'],'wj'=>wj));?>" class="btn  btn-danger" title="一键通知班主任" onclick="return sub();"><span class="glyphicon glyphicon-send"></span>&nbsp;一键通知班主任</a> -->
 						</td>
 					</form>
 				     </tr>
@@ -85,15 +85,15 @@
 				   </table>
 				</div>
 		   </div>
-		   <div id="img"><img src="__ROOT__<{$user.image}>" class="img-thumbnail" ></div>
+		   <div id="img"><img src="/web/168<?php echo ($user["image"]); ?>" class="img-thumbnail" ></div>
 		   <div class="panel-footer text-center">
 					Copyright © 168
 			</div>
 		</div>
    </div>
-   <script src="__PUBLIC__/js/bootstrap.min.js"></script>
-   <script src="__PUBLIC__/js/jquery.min.js"></script>
-   <script src="__PUBLIC__/js/layer/layer.js"></script>
+   <script src="/web/168/Public/js/bootstrap.min.js"></script>
+   <script src="/web/168/Public/js/jquery.min.js"></script>
+   <script src="/web/168/Public/js/layer/layer.js"></script>
    <script type="text/javascript">
    $('#ab').on('click', function(){
   		layer.open({
