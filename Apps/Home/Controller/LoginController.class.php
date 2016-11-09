@@ -60,20 +60,20 @@ class LoginController extends Controller {
 					}
 	}
 	//登陆验证码
-	public function code(){
-		// import('ORG.Util.Image');
-		// Image::buildImageVerify(4,1);
-		$config = array(
-		'fontSize' => 30, // 验证码字体大小
-		'length' => 4, // 验证码位数
-		'useNoise' => false, // 关闭验证码杂点
-		);
-	$Verify = new \Think\Verify($config);
-	$Verify->entry();
-	}
+	// public function code(){
+	// 	// import('ORG.Util.Image');
+	// 	// Image::buildImageVerify(4,1);
+	// 	$config = array(
+	// 	'fontSize' => 30, // 验证码字体大小
+	// 	'length' => 4, // 验证码位数
+	// 	'useNoise' => false, // 关闭验证码杂点
+	// 	);
+	// $Verify = new \Think\Verify($config);
+	// $Verify->entry();
+	// }
 	//登陆表单处理
 	public function _before_do_login(){ 
-		if(session('nickname')===I('post.uname')) {
+		if(session('username')===I('post.uname')) {
             $this->error('该账号已登录，请勿重复登录',U('Login/index'),3);
                     		//$this->redirect('Login/index'); 
 	    }   
