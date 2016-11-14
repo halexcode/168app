@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery.min.js"></script>
+</head>
+<body>
+<script>
+	
+		var a=$("#in").val();
+		$('#in').bind('input propertychange', function() { 
+ 			$("#hide").val(a);
+		});
+		
+		
+
+	
+</script>
+	<input type="text" id="in">
+	<input type="text" id="hide">
+</body>
+</html>

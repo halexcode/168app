@@ -28,7 +28,7 @@
 				   <table class="table table-bordered table-striped table-hover text-center">
 				      <caption>&nbsp;共查询获得&nbsp;<span class="text-success"><{$count}></span>&nbsp;条数据</caption>
 				      <tbody>
-				      <tr>
+				      <tr class="success">
 				      	<th>姓名</th><th>违纪项目</th><th>备注</th><th>违纪时间</th><th>登记人</th><th>登记时间</th><th>状态</th><th>处理人</th><th>处理方式</th><th>处理时间</th><th>操作</th>
 				      </tr>
 				     <volist name="outlines" id="vo">
@@ -36,7 +36,7 @@
 				     	<td><{$vo.sname}></td><td><{$vo.outlines}></td><td><{$vo.remark}></td><td><{$vo.time}></td><td><{$vo.booker}></td><td><{$vo.booktime|date="Y-m-d H:i:s",###}></td>
 				     	<td>
 				     		<heq name="vo.status" value="0">
-				     		<button class="btn btn-xs btn-danger">未处理</button>
+				     		<button class="btn btn-xs btn-danger">处理中...</button>
 				     		<else/>
 				     		<button class="btn btn-xs btn-success">已处理</button>
 				     		</heq>
