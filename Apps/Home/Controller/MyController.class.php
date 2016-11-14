@@ -28,9 +28,10 @@ class MyController extends Controller {
 		}else{
 			$result = $n->add(); // 写入数据到数据库
 			if($result){
-			header("Content-Type:text/html; charset=utf-8");
-			echo "信息添加成功！";
-			redirect(U('My/index'), 1, ' 页面跳转中 ...');
+			$this->success('信息添加成功！',U('My/index'),2);
+			// header("Content-Type:text/html; charset=utf-8");
+			// echo "信息添加成功！";
+			// redirect(U('My/index'), 1, ' 页面跳转中 ...');
 			}
 		}  
 	}
@@ -242,9 +243,10 @@ class MyController extends Controller {
 					$stu->time=time();
 					$result = $stu->add(); // 写入数据到数据库
 					if($result){
-					header("Content-Type:text/html; charset=utf-8");
-					echo "恭喜您，添加学生信息成功！";
-					redirect(U('add_s'), 2, ' 页面跳转中 ...');
+					$this->success('恭喜您，添加学生信息成功！',U('add_s'),2);
+					// header("Content-Type:text/html; charset=utf-8");
+					// echo "恭喜您，添加学生信息成功！";
+					// redirect(U('add_s'), 2, ' 页面跳转中 ...');
 					}
 				}
 			//echo $path;
