@@ -60,7 +60,7 @@ class OutlineController extends Controller {
 			$out->booktime=time();
 			$result = $out->add(); // 写入数据到数据库
 			if($result){
-				$this->success('违纪记录添加成功！',U('Index/index'),30);
+				$this->success('违纪记录添加成功！',U('Index/index'),3);
 			 // header("Content-Type:text/html; charset=utf-8");
 			 // echo '<b style="vertical-align:40%;text-align:center;">违纪记录添加成功！</b>';
 			 // redirect(U('Index/index'), 3, ' 页面跳转中 ...');
